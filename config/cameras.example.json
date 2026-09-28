@@ -1,0 +1,31 @@
+{
+  "cameras": [
+    {
+      "camera_id": "DEMO_CAMERA",
+      "location": "Демонстрационная лестница",
+      "description": "Пример конфигурации для кадра 640x360",
+      "logo_path": "",
+      "video_folder_path": "data/videos/DEMO_CAMERA",
+      "violations_folder_path": "data/violations/DEMO_CAMERA",
+      "yolo_model_path": "models/model.pt",
+      "violation_timer_threshold": 2.0,
+      "motion_detection": {
+        "threshold": 25,
+        "min_area": 500,
+        "blur_size": 21,
+        "dilate_iterations": 2
+      },
+      "roi_zone": [[0, 0], [639, 0], [639, 359], [0, 359]],
+      "stair_zones": [
+        {
+          "id": 1,
+          "coordinates": [[100, 340], [540, 340], [430, 80], [210, 80]],
+          "handrails": [
+            {"id": 1, "coordinates": [[80, 340], [120, 350], [240, 70], [210, 65]]},
+            {"id": 2, "coordinates": [[520, 350], [560, 340], [440, 65], [410, 70]]}
+          ]
+        }
+      ]
+    }
+  ]
+}

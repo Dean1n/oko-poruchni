@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Runtime data
+data/analytics.db*
+data/videos/**
+!data/videos/.gitkeep
+data/violations/**
+!data/violations/.gitkeep
+logs/**
+!logs/.gitkeep
+temp/
+exports/
+
+# Models and installers
+models/*.pt
+installers/
+Установщики/
+*.exe
+*.whl
+
+# IDE and OS
+.DS_Store
+._*
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini
+
+# Office temporary files
+~$*

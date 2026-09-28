@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ОКО Поручни — инструкция оператора</title>
+<style>
+body{margin:0;background:#f3f6f9;color:#17212b;font:18px/1.5 Arial,sans-serif}main{max-width:980px;margin:auto;padding:28px}h1{font-size:38px;margin:0 0 8px}h2{font-size:27px;margin-top:42px;border-bottom:3px solid #1677ff;padding-bottom:8px}.lead{font-size:21px;color:#415466}.card{background:white;border-radius:14px;padding:22px;margin:16px 0;box-shadow:0 2px 10px #16324f18}.steps{counter-reset:s}.step{display:grid;grid-template-columns:54px 1fr;gap:14px;margin:18px 0}.step:before{counter-increment:s;content:counter(s);width:46px;height:46px;border-radius:50%;background:#1677ff;color:white;display:grid;place-items:center;font-weight:bold;font-size:22px}.path{background:#142433;color:#fff;padding:12px 16px;border-radius:8px;font-family:Consolas,monospace;overflow-wrap:anywhere}.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.flow b{background:#e7f1ff;border:2px solid #85b8ff;border-radius:10px;padding:12px}.arrow{font-size:28px;color:#1677ff}.colors{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.color{padding:16px;border-radius:10px;border-left:12px solid}.green{border-color:#23a455;background:#eaf8ef}.red{border-color:#dc3545;background:#fdecee}.orange{border-color:#f0a000;background:#fff5d9}.blue{border-color:#28a9d8;background:#e8f7fc}.warn{background:#fff4d6;border:2px solid #ffc247}.ok{background:#e9f8ef;border:2px solid #55b979}table{border-collapse:collapse;width:100%;background:white}th,td{border:1px solid #cad4de;padding:12px;text-align:left}th{background:#e7f1ff}@media(max-width:600px){main{padding:16px}h1{font-size:30px}.flow{display:block}.arrow{text-align:center}.step{grid-template-columns:44px 1fr}.step:before{width:38px;height:38px}}
+</style>
+</head>
+<body><main>
+<h1>ОКО Поручни</h1>
+<p class="lead">Инструкция для оператора. Всё необходимое работает без интернета.</p>
+
+<div class="card warn"><b>Главное правило:</b> видео каждой камеры кладите только в её папку. Разметка лестницы и поручней привязана к конкретному ракурсу.</div>
+
+<h2>Первый запуск на новом компьютере</h2>
+<div class="steps">
+ <div class="step"><div><b>Скопируйте всю папку</b> OKO_PORUCHNI с флешки на диск компьютера: <span class="path">C:\OKO_PORUCHNI</span></div></div>
+ <div class="step"><div>Запустите <b>УСТАНОВИТЬ_ОФЛАЙН.bat</b>. Скрипт установит Python и библиотеки с флешки.</div></div>
+ <div class="step"><div>Дождитесь сообщения <b>«ОФЛАЙН-УСТАНОВКА ЗАВЕРШЕНА УСПЕШНО»</b>.</div></div>
+ <div class="step"><div>Запустите <b>Проверить установку.bat</b>, затем <b>Запуск.bat</b>.</div></div>
+</div>
+<div class="card ok">После установки каждый день нужен только файл <b>Запуск.bat</b>.</div>
+
+<h2>Ежедневная обработка видео</h2>
+<div class="flow"><b>1. Получить видео</b><span class="arrow">→</span><b>2. Положить в папку камеры</b><span class="arrow">→</span><b>3. Открыть камеру</b><span class="arrow">→</span><b>4. Обработать</b><span class="arrow">→</span><b>5. Проверить фрагменты</b></div>
+<div class="steps">
+ <div class="step"><div>Узнайте ID камеры в имени или источнике записи, например <b>CBK1.01</b>.</div></div>
+ <div class="step"><div>Скопируйте видео в папку:<div class="path">C:\OKO_PORUCHNI\data\videos\CBK1.01</div></div></div>
+ <div class="step"><div>Запустите <b>Запуск.bat</b>. Найдите карточку камеры CBK1.01 и нажмите <b>«Открыть»</b>.</div></div>
+ <div class="step"><div>В таблице <b>«Список видео»</b> выделите файл. Если его нет, нажмите <b>«Обновить»</b>.</div></div>
+ <div class="step"><div>Нажмите <b>«Обработать видео»</b>. При первой проверке используйте режим с визуализацией.</div></div>
+ <div class="step"><div>Дождитесь надписи <b>«Обработка завершена»</b>. До этого не закрывайте окно.</div></div>
+</div>
+
+<h2>Что показывают цвета</h2>
+<div class="colors">
+ <div class="color green"><b>Зелёный</b><br>Кисть попала в зону поручня.</div>
+ <div class="color red"><b>Красный</b><br>Возможное нарушение подтверждено таймером.</div>
+ <div class="color orange"><b>Оранжевый</b><br>Руки видны плохо. Решение не принимается.</div>
+ <div class="color blue"><b>Голубой</b><br>Человек находится вне зоны лестницы.</div>
+</div>
+
+<h2>Где находится результат</h2>
+<p>Программа сохраняет отдельные AVI-фрагменты возможных нарушений:</p>
+<div class="path">C:\OKO_PORUCHNI\data\violations\ID_камеры</div>
+<p>Например:</p>
+<div class="path">C:\OKO_PORUCHNI\data\violations\CBK1.01</div>
+<div class="card ok"><b>Самый простой способ:</b> дважды нажмите файл <b>Открыть нарушения.bat</b>, откройте папку нужной камеры, затем дважды нажмите AVI-файл. Он откроется стандартным проигрывателем Windows.</div>
+<p>В имени AVI указаны камера, временный ID человека, дата и время. Сам AVI содержит несколько секунд видео до и во время предполагаемого нарушения.</p>
+
+<h2>Как проверить нарушение вручную</h2>
+<div class="card warn"><b>Программа не устанавливает личность и не принимает окончательное решение.</b> Она только отбирает фрагменты для оператора.</div>
+<div class="steps">
+ <div class="step"><div>Откройте сохранённый AVI-фрагмент.</div></div>
+ <div class="step"><div>Убедитесь, что человек действительно находится на лестнице.</div></div>
+ <div class="step"><div>Проверьте, видны ли руки и касается ли кисть поручня.</div></div>
+ <div class="step"><div>Запишите решение: <b>подтверждено</b>, <b>отклонено</b> или <b>недостаточно данных</b>.</div></div>
+ <div class="step"><div>Если нужна личность, сопоставьте камеру и время с исходным видео, сменой, одеждой, проходной или другой камерой.</div></div>
+</div>
+<p>ID на экране — временный номер человека только внутри этого видео. Это не ФИО и не табельный номер.</p>
+
+<h2>Если что-то не работает</h2>
+<table>
+<tr><th>Ситуация</th><th>Что сделать</th></tr>
+<tr><td>Видео не появилось</td><td>Проверьте папку камеры и нажмите «Обновить».</td></tr>
+<tr><td>Людей не находит</td><td>Проверьте, что выбрана камера именно от этого видео. Затем проверьте ROI и зону лестницы.</td></tr>
+<tr><td>Держится, но отмечено нарушение</td><td>Проверьте полосу поручня на контрольном кадре. Она должна покрывать положение кисти.</td></tr>
+<tr><td>Не держится, но нарушения нет</td><td>Проверьте зону лестницы, поручень и порог времени. Рука рядом с слишком широкой зоной может считаться контактом.</td></tr>
+<tr><td>Камеру передвинули</td><td>Разметьте ROI, лестницу и поручни заново.</td></tr>
+<tr><td>Программа выдала ошибку</td><td>Откройте <span class="path">C:\OKO_PORUCHNI\logs\app.log</span> и передайте последние строки разработчику.</td></tr>
+</table>
+
+<h2>Как работает журнал</h2>
+<p>Программа автоматически дописывает события в файл:</p>
+<div class="path">C:\OKO_PORUCHNI\logs\app.log</div>
+<p>Чтобы открыть его без поиска папок, дважды нажмите <b>Открыть журнал ошибок.bat</b>. Файл откроется в Блокноте.</p>
+<table>
+<tr><th>Пометка</th><th>Значение</th></tr>
+<tr><td>INFO</td><td>Обычное событие: запуск, загрузка модели, начало и завершение обработки.</td></tr>
+<tr><td>WARNING</td><td>Предупреждение. Работа могла продолжиться, но событие нужно проверить.</td></tr>
+<tr><td>ERROR или CRITICAL</td><td>Ошибка. Передайте разработчику app.log и название видео, на котором она возникла.</td></tr>
+</table>
+<p>В каждой строке есть дата и точное время. Журнал не является видеозаписью и не содержит лиц — это технический текст о работе программы.</p>
+
+<h2>Кто что делает</h2>
+<table>
+<tr><th>Оператор</th><th>Специалист по настройке</th></tr>
+<tr><td>Кладёт видео в нужную папку, запускает обработку, проверяет сохранённые эпизоды.</td><td>Добавляет камеры, размечает ROI/лестницу/поручни, проверяет контрольные проходы.</td></tr>
+</table>
+<p>Подробная настройка камер описана в файле <b>УСТАНОВКА_НА_НОВОМ_ПК.txt</b>.</p>
+</main></body></html>

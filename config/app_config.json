@@ -1,0 +1,51 @@
+{
+  "application": {
+    "name": "Система видеоаналитики безопасного передвижения по лестницам",
+    "version": "1.0.0",
+    "debug_mode": false,
+    "log_level": "INFO",
+    "log_file": "logs/app.log",
+    "database_path": "data/analytics.db",
+    "temp_dir": "temp"
+  },
+  "cuda": {
+    "enabled": true,
+    "device": 0
+  },
+  "models": {
+    "yolo_pose_path": "models/model.pt",
+    "tracker_config": "models/bytetrack.yaml"
+  },
+  "video_processing": {
+    "default_violation_threshold": 3.0,
+    "motion_detection": {
+      "threshold": 25,
+      "min_area": 500,
+      "blur_size": 21,
+      "dilate_iterations": 2
+    },
+    "visualization": {
+      "roi_color": [255, 0, 0],
+      "roi_alpha": 0.3,
+      "stair_color": [128, 128, 128],
+      "stair_alpha": 0.2,
+      "handrail_color": [0, 255, 0],
+      "handrail_alpha": 0.4,
+      "holding_box_color": [0, 255, 0],
+      "violation_box_color": [255, 0, 0]
+    }
+  },
+  "ui": {
+    "window_width": 1280,
+    "window_height": 800,
+    "theme": "default",
+    "language": "ru",
+    "font_size": 10
+  },
+  "paths": {
+    "cameras_config": "config/cameras.json",
+    "default_videos_dir": "data/videos",
+    "default_violations_dir": "data/violations",
+    "exports_dir": "exports"
+  }
+}

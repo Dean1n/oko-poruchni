@@ -1,0 +1,8 @@
+# Tested with Python 3.12. Keep a working CUDA environment if already installed.
+numpy==1.26.4
+opencv-python==4.10.0.84
+torch==2.5.1
+torchvision==0.20.1
+ultralytics==8.3.0
+PyQt5==5.15.11
+lapx==0.5.11
